@@ -1,8 +1,8 @@
 ## Interface: 11302
-## Author: Aelian
+## Author: Boothin (Original Code by Aelian)
 ## Title: TheoryCraft Classic
 ## Notes: Tells you everything about an ability, right on the tooltip.
-## Version: 1.06.5
+## Version: 1.0.0
 ## SavedVariablesPerCharacter: TheoryCraft_Settings
 ## SavedVariables: TheoryCraft_SetBonuses, TheoryCraft_MitigationMobs, TheoryCraft_MitigationPlayers
 ## DefaultState: enabled
