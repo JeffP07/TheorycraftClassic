@@ -85,7 +85,7 @@ function TheoryCraft_getMinMax(spelldata, returndata, frame)
 		local _, convert
 		_, _, convert = strfind(returndata["description"], TheoryCraft_MeleeComboEnergyConverter)
 		returndata["comboconvert"] = tonumber(convert)
-		for points, tmp, mindamage, maxdamage in string.gfind(returndata["description"], TheoryCraft_MeleeComboReader) do
+		for points, tmp, mindamage, maxdamage in string.gmatch(returndata["description"], TheoryCraft_MeleeComboReader) do
 			returndata["combo"..points.."mindamage"] = mindamage
 			returndata["combo"..points.."maxdamage"] = maxdamage
 		end

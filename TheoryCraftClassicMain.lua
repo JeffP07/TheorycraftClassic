@@ -750,7 +750,6 @@ function TheoryCraft_CheckBoxToggle(self)
 		TheoryCraft_Settings[name] = onoff
 		TheoryCraft_SetCheckBox("alignleft")
 		TheoryCraft_SetCheckBox("alignright")
-		TheoryCraft_UpdateDummyButtonText()
 	elseif name == "useglock" then
 		if (MobResistDB) and (type(MobResistDB) == "table") and (onoff == true) then
 			TheoryCraft_Settings[name] = onoff
@@ -856,7 +855,6 @@ function TheoryCraft_Command(cmd)
 		if (TheoryCraft:IsVisible()) then
 			TheoryCraft:Hide()
 		else
-			if TheoryCraft_UpdateDummyButtonText then TheoryCraft_UpdateDummyButtonText() end
 			TheoryCraft:Show()
 		end
 	end
@@ -1155,8 +1153,6 @@ function TheoryCraft_UpdateEditBox(self)
 		end
 	else
 		TheoryCraft_Settings[s] = text
-		if TheoryCraft_UpdateDummyButtonText then
-			TheoryCraft_UpdateDummyButtonText(true)
-		end
+
 	end
 end

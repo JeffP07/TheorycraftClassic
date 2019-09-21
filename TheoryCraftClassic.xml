@@ -421,11 +421,9 @@
 			</OnDragStart>
 			<OnDragStop>
 				self:StopMovingOrSizing()
-				TheoryCraft_UpdateDummyButtonText()
 			</OnDragStop>
 			<OnMouseUp>
 				self:StopMovingOrSizing()
-				TheoryCraft_UpdateDummyButtonText()
 			</OnMouseUp>
 			<OnLoad>
 				TheoryCraft_OnLoad(self)
