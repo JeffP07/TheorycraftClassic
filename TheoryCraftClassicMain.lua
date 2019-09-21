@@ -515,21 +515,6 @@ function TheoryCraft_OnShow()
 	--end
 end
 
-function TheoryCraft_GLOCK_UpdateResist(self, arg1)
-	self:OldSetText(arg1)
-	if not TheoryCraft_Settings["useglock"] then
-		return
-	end
-	if strfind(arg1, "I") then
-		TheoryCraft_Settings["resistscores"][self.TCType] = "~"
-	elseif strfind(arg1, "V") then
-		TheoryCraft_Settings["resistscores"][self.TCType] = -50
-	else
-		TheoryCraft_Settings["resistscores"][self.TCType] = tonumber(arg1) or 0
-	end
-	getglobal("TheoryCraftresist"..self.TCType):SetText(TheoryCraft_Settings["resistscores"][self.TCType])
-end
-
 	if BActionButton and type(BActionButton) == "table" then
 		TheoryCraft_Data["oldBongo"] = BActionButton.Create
 		function TheoryCraft_BActionButtonCreate(index, bar)
@@ -784,14 +769,12 @@ function TheoryCraft_CheckBoxToggle(self)
 			TheoryCraftresistNature:Show()
 			TheoryCraftresistFrost:Show()
 			TheoryCraftresistShadow:Show()
-			TheoryCraftuseglock:Show()
 		else
 			TheoryCraftresistArcane:Hide()
 			TheoryCraftresistFire:Hide()
 			TheoryCraftresistNature:Hide()
 			TheoryCraftresistFrost:Hide()
 			TheoryCraftresistShadow:Hide()
-			TheoryCraftuseglock:Hide()
 		end
 	end
 	if (name == "procs") or (name == "rollignites") or (name == "sepignites") or (name == "combinedot") or (name == "dotoverct") or (name == "dontcrit") then
@@ -804,13 +787,7 @@ end
 
 function TheoryCraft_Command(cmd)
 	if (cmd == "") then
-		if TheoryCraft_Data["firstrun"] == nil then
-			if TheoryCraft_NotStripped then
-				PanelTemplates_SetNumTabs(TheoryCraft, 3)
-				TheoryCraft.selectedTab=1
-				PanelTemplates_UpdateTabs(TheoryCraft)
-			end
-		end
+
 		TheoryCraft_Data["firstrun"] = 1
 
 		TheoryCraft_SetCheckBox("embedstyle1")
@@ -868,14 +845,12 @@ function TheoryCraft_Command(cmd)
 			TheoryCraftresistNature:Show()
 			TheoryCraftresistFrost:Show()
 			TheoryCraftresistShadow:Show()
-			TheoryCraftuseglock:Show()
 		else
 			TheoryCraftresistArcane:Hide()
 			TheoryCraftresistFire:Hide()
 			TheoryCraftresistNature:Hide()
 			TheoryCraftresistFrost:Hide()
 			TheoryCraftresistShadow:Hide()
-			TheoryCraftuseglock:Hide()
 		end
 
 		if (TheoryCraft:IsVisible()) then

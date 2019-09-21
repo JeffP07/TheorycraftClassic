@@ -157,15 +157,6 @@
 		</Scripts>
 	</Frame>
 
-	<CheckButton name="TheoryCraftTabTemplate" inherits="CharacterFrameTabButtonTemplate" virtual="true">
-		<Scripts>
-			<OnClick>
-				PanelTemplates_Tab_OnClick(TheoryCraft)
-				TheoryCraft_TabHandler(self:GetName())
-			</OnClick>
-		</Scripts>
-	</CheckButton>
-
 	<CheckButton name="TheoryCraftCheckButtonTemplate" inherits="UICheckButtonTemplate" virtual="true">
 		<HitRectInsets>
 			<AbsInset left="0" right="-100" top="0" bottom="0"/>
@@ -444,33 +435,6 @@
 			</OnEvent>
 		</Scripts>
 		<Frames>
-			<CheckButton name="TheoryCraftTab1" inherits="TheoryCraftTabTemplate" id="1" text="Tooltip">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
-						<Offset>
-							<AbsDimension x="0" y="9"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</CheckButton>
-			<CheckButton name="TheoryCraftTab2" inherits="TheoryCraftTabTemplate" id="2" text="Button Text" hidden="true">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeto="TheoryCraftTab1" relativePoint="TOPRIGHT">
-						<Offset>
-							<AbsDimension x="-18" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</CheckButton>
-			<CheckButton name="TheoryCraftTab3" inherits="TheoryCraftTabTemplate" id="3" text="Vitals" hidden="true">
-				<Anchors>
-					<Anchor point="TOPLEFT" relativeto="TheoryCraftTab2" relativePoint="TOPRIGHT">
-						<Offset>
-							<AbsDimension x="-18" y="0"/>
-						</Offset>
-					</Anchor>
-				</Anchors>
-			</CheckButton>
 			<Frame name="TheoryCraftSettingsTab" parent="TheoryCraft">
 				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
 					<TileSize>
@@ -866,15 +830,6 @@
 						<Anchor point="LEFT" relativeTo="TheoryCraftdontcrit">
 							<Offset>
 								<AbsDimension x="122" y="0"/>
-							</Offset>
-						</Anchor>
-					</Anchors>
-				</CheckButton>
-				<CheckButton name="TheoryCraftuseglock" inherits="TheoryCraftCBTemplate">
-					<Anchors>
-						<Anchor point="LEFT" relativeTo="TheoryCraftdontresist">
-							<Offset>
-								<AbsDimension x="90" y="0"/>
 							</Offset>
 						</Anchor>
 					</Anchors>
