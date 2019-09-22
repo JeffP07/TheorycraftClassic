@@ -20,11 +20,32 @@ local a = TheoryCraft_TooltipOrs
 local leftline, rightline, rightlinewasnil, _, doheal, timer
 local returnvalue, colour
 
+local function docolour(r, g, b)
+    r = tonumber(r)
+    g = tonumber(g)
+    b = tonumber(b)
+    if (not r) or (not g) or (not b) then return "invalid colour" end
+    if (r > 1) or (r < 0) or (g > 1) or (g < 0) or (b > 1) or (b < 0) then return "invalid colour" end
+    if first then
+        red = r
+        green = g
+        blue = b
+        first = false
+        return ""
+    else
+        return "|c"..string.format("%.2x", math.floor(r*255))..
+                string.format("%.2x", math.floor(g*255))..
+                string.format("%.2x", math.floor(b*255)).."ff"
+    end
+end
+
+local shouldSetSpell = false
+
 function TheoryCraft_AddTooltipInfo(frame, dontshow)
 	if TheoryCraft_Settings["off"] then return frame end
 	local tooltipdata = TheoryCraft_GetSpellDataByFrame(frame, true)
 	if tooltipdata == nil then
-		if (frame:NumLines() == 1) and (getglobal(frame:GetName().."TextLeft1"):GetText() ~= "Attack") then
+		if (shouldSetSpell) and (frame:NumLines() == 1) and (getglobal(frame:GetName().."TextLeft1"):GetText() ~= "Attack") then
 			local _, _, name, rank = strfind(getglobal(frame:GetName().."TextLeft1"):GetText(), "(.+)%((%d+)%)")
 			if not name then return nil end
 			rank = tonumber(rank)
@@ -43,31 +64,12 @@ function TheoryCraft_AddTooltipInfo(frame, dontshow)
 				i2 = i2 + 1
 			end
 		end
-		frame:Show()
+		--frame:Show()
 		return frame
 	end
 
 	timer = GetTime()
 	doheal = (tooltipdata["minheal"]) and (((tooltipdata["drain"] == nil) and (tooltipdata["holynova"] == nil)) or (TheoryCraft_Settings["healanddamage"]))
-
-	local function docolour(r, g, b)
-		r = tonumber(r)
-		g = tonumber(g)
-		b = tonumber(b)
-		if (not r) or (not g) or (not b) then return "invalid colour" end
-		if (r > 1) or (r < 0) or (g > 1) or (g < 0) or (b > 1) or (b < 0) then return "invalid colour" end
-		if first then
-			red = r
-			green = g
-			blue = b
-			first = false
-			return ""
-		else
-			return "|c"..string.format("%.2x", math.floor(r*255))..
-				    string.format("%.2x", math.floor(g*255))..
-				    string.format("%.2x", math.floor(b*255)).."ff"
-		end
-	end
 
 	local function dowork(n)
 		local _, _, n2 = strfind(n, "|(.+)|")
@@ -278,6 +280,6 @@ function TheoryCraft_AddTooltipInfo(frame, dontshow)
 			end
 		end
 	end
-	frame:Show()
+	-- frame:Show()
 	return frame
 end
