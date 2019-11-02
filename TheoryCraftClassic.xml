@@ -429,7 +429,7 @@
 				TheoryCraft_OnLoad(self)
 			</OnLoad>
 			<OnEvent>
-				TheoryCraft_OnEvent(self,event)
+				TheoryCraft_OnEvent(self,event,...)
 			</OnEvent>
 		</Scripts>
 		<Frames>

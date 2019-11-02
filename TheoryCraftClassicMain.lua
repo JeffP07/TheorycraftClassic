@@ -525,7 +525,7 @@ end
 		BActionButton.Create = TheoryCraft_BActionButtonCreate
 	end
 
-function TheoryCraft_OnEvent(self, event)
+function TheoryCraft_OnEvent(self, event, arg1)
 	local UIMem = gcinfo()
 	if event == "VARIABLES_LOADED" then
 		if TheoryCraft_AddButtonText then TheoryCraft_AddButtonText() end
