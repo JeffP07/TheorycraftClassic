@@ -549,19 +549,28 @@ function TheoryCraft_OnEvent(self, event, arg1)
 		end
 
 		-- Hooking Nurfed Action Bars onUpdate event for button text purposes
-		TheoryCraft_Data["oldGBMSB"] = GB_Spellbook_UpdatePage
-		GB_Spellbook_UpdatePage = TheoryCraft_GB_Spellbook_UpdatePage
 
-		TheoryCraft_Data["oldNurfed"] = Nurfed_ActionButton_OnUpdate
-		Nurfed_ActionButton_OnUpdate = TheoryCraft_Nurfed_ActionButton_OnUpdate
+        if GB_Spellbook_UpdatePage and TheoryCraft_GB_Spellbook_UpdatePage and not TheoryCraft_Data["oldGBMSB"] then
+            TheoryCraft_Data["oldGBMSB"] = GB_Spellbook_UpdatePage
+            GB_Spellbook_UpdatePage = TheoryCraft_GB_Spellbook_UpdatePage
+        end
+
+        if Nurfed_ActionButton_OnUpdate and TheoryCraft_Nurfed_ActionButton_OnUpdate and not TheoryCraft_Data["oldNurfed"] then
+            TheoryCraft_Data["oldNurfed"] = Nurfed_ActionButton_OnUpdate
+            Nurfed_ActionButton_OnUpdate = TheoryCraft_Nurfed_ActionButton_OnUpdate
+        end
 
 		if TheoryCraft_OnShow_Save ~= nil then
 			return
 		end
 
 		--hooking GameTooltip's OnShow
-		TheoryCraft_OnShow_Save = GameTooltip:GetScript("OnShow")
-		GameTooltip:SetScript( "OnShow", TheoryCraft_OnShow )
+        
+		--TheoryCraft_OnShow_Save = GameTooltip:GetScript("OnShow")
+		--GameTooltip:SetScript( "OnShow", TheoryCraft_OnShow )
+        hooksecurefunc(GameTooltip, "Show", TheoryCraft_OnShow)
+        TheoryCraft_OnShow_Save = true
+        
 		if TheoryCraft_Mitigation == nil then
 			TheoryCraft_Mitigation = {}
 		end

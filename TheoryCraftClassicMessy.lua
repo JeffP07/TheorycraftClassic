@@ -424,8 +424,8 @@ function TheoryCraft_getMinMax(spelldata, returndata, frame)
 		minDamage = findpattern(minDamage, "%d+")
 		maxDamage = findpattern(maxDamage, "%d+")
 		local lengthofdamagetext = string.len(minDamage..to..maxDamage);
-		minDamage = minDamage*baseincrease + plusdam
-		maxDamage = maxDamage*baseincrease + plusdam
+		minDamage = tonumber(minDamage)*baseincrease + plusdam
+		maxDamage = tonumber(maxDamage)*baseincrease + plusdam
 
 		local minHeal = string.sub(description, string.find(description, "%d+"..to.."%d+")+lengthofdamagetext)
 		minHeal = findpattern(minHeal, "%d+"..to.."%d+")
@@ -436,8 +436,8 @@ function TheoryCraft_getMinMax(spelldata, returndata, frame)
 		local plusheal = (TheoryCraft_GetStat("All") + TheoryCraft_GetStat("Holy") + TheoryCraft_GetStat("Healing"))*spelldata.percentheal
 
 		local lengthofhealtext = string.len(minHeal..to..maxHeal);
-		minHeal = (minHeal + plusheal)*basehealincrease
-		maxHeal = (maxHeal + plusheal)*basehealincrease
+		minHeal = ((tonumber(minHeal) or 0) + plusheal)*basehealincrease
+		maxHeal = ((tonumber(maxHeal) or 0) + plusheal)*basehealincrease
 
 		description = 	string.sub(description, 0, string.find(description, "%d+"..to.."%d+", 0)-1)..
 				round(minDamage)..to..round(maxDamage)..
