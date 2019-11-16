@@ -843,6 +843,7 @@ TheoryCraft_EquipEveryRight = {
 TheoryCraft_EquipEveryLine = {
 -- patch 1.12
 	{ text="%+(%d+) Heilzauber", type="Healing" },										-- of healing items
+	{ text="%+(%d+) Heilung", type="Healing" },					-- of healing items
 	{ text="Heilzauber %+(%d+)", type="Healing" },								-- zg priest and healing enchant
 
 

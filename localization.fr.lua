@@ -867,6 +867,7 @@ TheoryCraft_EquipEveryLine = {
 	{ text="Soins et d\195\169g\195\162ts des sorts ++(%d+)", type="All", me=1 },	-- zg enchant
 	{ text="++(%d+) aux d\195\169g\195\162ts et aux sorts de soins", type="All" },	-- zg shoulder damage enchant
 	{ text="++(%d+) aux sorts de soins", type="Healing" },				-- of healing items
+	{ text="%+(%d+) Healing Spells", type="Healing" },					-- of healing items
 	{ text="++(%d+) D\195\169g\195\162ts et soins", type="All" },			-- of sorcery items
 	{ text="R\195\169cup. mana ++(%d+)/", type="manaperfive" },			-- zg enchant
 	{ text="++(%d+) points de mana toutes les 5 sec.", type="manaperfive" },	-- of restoration
