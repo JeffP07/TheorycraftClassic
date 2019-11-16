@@ -377,6 +377,7 @@ TheoryCraft_EquipEveryLine = {
 	{ text="Spell Hit ++%d+%%", type="Allhitchance", amount="n" },			-- zg enchant
 	{ text="Healing and Spell Damage ++%d+", type="All", amount="n", me=1 },	-- zg enchant
 	{ text="+%d+ Healing", type="Healing", amount="n" },				-- of healing items
+	{ text="%+(%d+) Healing Spells", type="Healing" },					-- of healing items
 	{ text="+%d+ Damage and Healing Spells", type="All", amount="n" },		-- of sorcery items
 	{ text="Mana Regen ++%d+/", type="manaperfive", amount="n" },			-- zg enchant
 	{ text="Restores %d+ mana every 5 sec.", type="manaperfive", amount="n" },	-- of restoration

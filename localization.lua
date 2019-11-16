@@ -795,6 +795,7 @@ TheoryCraft_EquipEveryRight = {
 }
 
 TheoryCraft_EquipEveryLine = {
+	{ text="%+(%d+) Healing Spells", type="Healing" },					-- of healing items
 	{ text=".+Block Value %+(%d+)", type="BlockValueReport" }, -- Block Value (ZG Enchant)
 	{ text="Ranged Attack Power %+(%d+)", type="RangedAttackPowerReport" }, 	-- Hunter Leg/Helm enchant
 	{ text="^(%d+) Block", type="BlockValueReport" }, 				-- Block Value (shield)
