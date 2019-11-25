@@ -84,7 +84,7 @@ local function TheoryCraft_AddEquipEffect (slotname, test, data, equippedsets)
 			end
 			local newbonuses = {}
 			i = 1
-			for k,v in TheoryCraft_SetBonuses[setname] do
+			for k,v in pairs(TheoryCraft_SetBonuses[setname]) do
 				if (v["pieces"] <= numpieces) then
 					newbonuses[i] = v
 					i = i + 1
